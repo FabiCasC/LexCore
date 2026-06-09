@@ -10,11 +10,17 @@ def mostrar():
     texto = ""
     if metodo == "Pegar texto":
         texto = st.text_area("Texto del contrato", height=300)
+        if len(texto) > 200_000:
+            st.warning("El texto es muy largo. Para textos grandes, es más estable usar **Subir archivo .txt**.")
     else:
         archivo = st.file_uploader("Sube el contrato", type=["txt"])
         if archivo:
-            texto = archivo.read().decode("utf-8")
-            st.text_area("Contenido", texto, height=200, disabled=True)
+            texto = archivo.read().decode("utf-8", errors="replace")
+            if len(texto) <= 10_000:
+                st.text_area("Contenido", texto, height=200, disabled=True)
+            else:
+                st.text_area("Contenido (vista previa)", texto[:10_000] + "\n\n...(truncado)...", height=200, disabled=True)
+                st.caption(f"Tamaño cargado: {len(texto):,} caracteres.")
 
     if st.button("Analizar contrato", type="primary"):
         if not nombre or not texto.strip():

@@ -1,1 +1,6 @@
 auditoria_id,contrato_id,fecha,total_clausulas,clausulas_riesgo,resultado
+95f9e8dc,32b49cfd,2026-06-09T00:41:05.964937,1,1,con_riesgos,95,BAJO
+dce36b89,6ba1c4d9,2026-06-09T00:47:15.441525,1,0,aprobado,95,BAJO
+b446d99c,0a3bea72,2026-06-09T00:49:28.478579,50000,0,aprobado,0,CRITICO
+08354dbb,b0613d22,2026-06-09T00:58:56.174141,2000,0,aprobado,0,CRITICO
+59aae5ee,995b6042,2026-06-09T00:59:40.645770,8,1,con_riesgos,50,ALTO
